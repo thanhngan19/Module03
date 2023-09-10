@@ -1,0 +1,101 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans";
+    /*background-color: #F3F3F3;*/
+}
+.header {
+    width: 95%;
+    margin: auto;
+}
+.navbar-brand img {
+    width: 100px;
+}
+.dropdown-menu {
+    width: 1000px;
+}
+#web-name {
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+    padding-left: 15px;
+    padding-top: 5px;
+    border-left: 2px solid black;
+}
+.nav-small-item {
+    font-size: 12px;
+    margin: 2px;
+}
+.nav-item:hover {
+    text-decoration: underline;
+}
+.shop-deal {
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.dropdown-item-group-title {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 25px;
+}
+.right-item {
+    font-size: 12px;
+    color: #899191;
+    border: none;
+    margin: 10px;
+}
+.dropdown-item {
+    font-size: 12px;
+    margin: 10px;
+}
+.search-box {
+    margin: 5px;
+}
+.search-text {
+    width: 0;
+    border: none;
+}
+.search-button {
+    font-size: 12px;
+    color: #899191;
+    border: none;
+}
+.search-box:hover {
+    width: 600px;
+    border: 1px solid silver;
+    border-radius: 10px;
+}
+.avatar {
+    width: 30px;
+    border-radius: 50%;
+}
+.header2 {
+    width: 95%;
+    margin: auto;
+}
+.header2 div {
+    float: right;
+}
+.first-img {
+    position: absolute;
+}
+.first-img img {
+    width: 100%;
+}
+.content-img {
+    position: absolute;
+    top: 10px;
+    width: 600px;
+    padding: 60px;
+    margin: 30px;
+}
+.tittle {
+    font-size: 70px;
+}
+.sub-tittle {
+    font-size: 20px;
+    margin-top: 1000px;
+}
