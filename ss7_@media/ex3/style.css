@@ -1,6 +1,9 @@
 *{
     margin:0;
-    padding: 0;
+    padding-top: 0px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
     list-style: none;
     text_decoration: none;
     font-family:"Google Sans Regular";
@@ -16,8 +19,9 @@ header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 100px;
+    padding:0px 100px;
     position: fixed;
+    /*margin-top: 100px;*/
 
 }
 footer{
