@@ -74,7 +74,7 @@ public class ProductRepository implements IProductRepository{
     public void Update(Product productUp,String url){
         Connection conn = BaseRepository.getConnection();
         int id_category=seCategory(url);
-        String UPDATE="update product set name_pro='"+productUp.getName_pro()+"',price="+productUp.getPrice()+",quantity='"+productUp.getQuantity()+ "',id_category="+id_category+" where id="+productUp.getId()+";";
+        String UPDATE="update product set name_pro='"+productUp.getName_pro()+"',price="+productUp.getPrice()+",quantity='"+productUp.getQuantity()+ "',id_category="+id_category+",color='"+productUp.getColor()+"' where id="+productUp.getId()+";";
         try {
             PreparedStatement ps = conn.prepareStatement(UPDATE);
             ps.executeUpdate();
@@ -130,5 +130,21 @@ public class ProductRepository implements IProductRepository{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public ArrayList<String> seCategory(){
+        ArrayList<String> ret = new ArrayList<String>();
+        Connection conn = BaseRepository.getConnection();
+        String SELECT_CATEGORY="select category.category from category";
+        try {
+            PreparedStatement  ps = conn.prepareStatement(SELECT_CATEGORY);
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()) {
+                ret.add(rs.getString("category"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return ret;
+
     }
 }

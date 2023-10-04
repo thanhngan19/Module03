@@ -27,10 +27,13 @@ public class Controller extends HttpServlet {
         }
         switch (action) {
             case "showFormEdit":
-                showFormEdit(req, resp);
+                showFormEdit2(req, resp);
                 break;
             case "showFormCreate":
                 showFormCreate(req, resp);
+                break;
+            case"showDetail":
+                showFormDetail(req,resp);
                 break;
             default:
                 findAll(req, resp);
@@ -73,8 +76,28 @@ public class Controller extends HttpServlet {
     private void showFormEdit(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("id"));
         Product seHouse = service.selectByID(id);
+        ArrayList<String> ret = service.seCategory();
         req.setAttribute("seHouse", seHouse);
+        req.setAttribute("ret", ret);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/edit.jsp");
+        try {
+            dispatcher.forward(req, resp);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void showFormEdit2(HttpServletRequest req, HttpServletResponse resp) {
+        ArrayList<Product> findAll = service.findAll();
+
+        int id = Integer.parseInt(req.getParameter("id"));
+        Product seHouse = service.selectByID(id);
+        ArrayList<String> ret = service.seCategory();
+        req.setAttribute("seHouse", seHouse);
+        req.setAttribute("ret", ret);
+        req.setAttribute("findAll", findAll);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/edit_inside.jsp");
         try {
             dispatcher.forward(req, resp);
         } catch (ServletException e) {
@@ -180,6 +203,18 @@ public class Controller extends HttpServlet {
         service.delete(id);
         try {
             resp.sendRedirect("/product?number=1");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void showFormDetail(HttpServletRequest req, HttpServletResponse resp){
+        int id = Integer.parseInt(req.getParameter("id"));
+        Product product = service.selectByID(id);
+        req.setAttribute("pro", product);
+        try {
+            req.getRequestDispatcher("/detail.jsp").forward(req,resp);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -12,4 +12,5 @@ public interface IProductRepository {
     void save(Product crProduct,String url);
     ArrayList search(String search);
     void delete(int id);
+    ArrayList<String> seCategory();
 }

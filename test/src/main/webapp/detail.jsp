@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: thanhngan
-  Date: 9/8/2023
-  Time: 4:55 PM
+  Date: 10/4/2023
+  Time: 1:12 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -40,35 +40,34 @@
     </style>
 </head>
 <body>
-<form action="/product?action=update" method="post">
     <div class="parent">
         <div class="child">
-            <h1>Sửa thông tin sản phẩm</h1>
+            <h1>Xem chi tiết sản phẩm</h1>
             <div class="form-group">
                 <label for="validationServer04"></label>
                 <input type="hidden" class="form-control is-valid"id="validationServer99" placeholder="State"
-                       placeholder="Last name" value="${seHouse.getId()}${id}"  name="id">
+                       placeholder="Last name" value="${pro.getId()}${id}"  name="id" readonly>
                 <div class="invalid-feedback">
                 </div>
             </div>
             <div class="form-group">
                 <label for="validationServer04">Product Name </label>
                 <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="State"
-                       required value="${seHouse.getName_pro()}${name_pro}" name="name_pro">
+                       required value="${pro.getName_pro()}${name_pro}" name="name_pro" readonly>
                 <div class="invalid-feedback">
                 </div>
             </div>
             <div class="form-group">
                 <label for="validationServer04">Price</label>
                 <input type="text" class="form-control is-valid"id="validationServer012" placeholder="State"
-                       placeholder="Last name" value="${seHouse.getPrice()}${price}"  name="price">
+                       placeholder="Last name" value="${pro.getPrice()}${price}"  name="price" readonly>
                 <div class="invalid-feedback">
                 </div>
             </div>
             <div class="form-group">
                 <label for="validationServer02">Quantity</label>
                 <input type="text" class="form-control is-valid" id="validationServer02"
-                       placeholder="Last name" value="${seHouse.getQuantity()}${quantity}" name="quantity" required>
+                       placeholder="Last name" value="${pro.getQuantity()}${quantity}" name="quantity" readonly>
                 <div class="valid-feedback">
                 </div>
             </div>
@@ -76,29 +75,24 @@
             <div class="form-group">
                 <label for="validationServer04">Color</label>
                 <input type="text" class="form-control is-valid" id="validationServer10"
-                       placeholder="Last name"name="color" value="${seHouse.getColor()}${color}" >
+                       placeholder="Last name"name="color" value="${pro.getColor()}${color}" readonly>
                 <div class="invalid-feedback">
 
                 </div>
             </div>
             <div class="form-group">
-                <label for="validationServer02">Catetory</label>
-<%--                <input type="text" class="form-control is-valid" id="validationServer05"--%>
-<%--                       placeholder="Last name"name="category" value="${seHouse.getCategory()}${category}"required>--%>
-                <select class="form-control" name="category" id="category" >
-                    <c:forEach items="${ret}" var="ret">
-                        <option value="${ret}">${ret}</option>
-                    </c:forEach>
-                </select>
+                <label for="validationServer04">Category</label>
+                <input type="text" class="form-control is-valid" id="validationServer11"
+                       placeholder="Last name"name="color" value="${pro.getCategory()}" readonly>
+                <div class="invalid-feedback">
 
+                </div>
             </div>
-            <div class="center">
-                <button type="submit" class="btn btn-primary">ADD</button>
-            </div>
+
         </div>
     </div>
     </div>
-</form>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous">
@@ -106,3 +100,4 @@
 </body>
 </html>
 </html>
+

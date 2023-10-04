@@ -14,4 +14,5 @@ public interface IProductService {
     ArrayList search(String search);
     void delete(int id);
     Map<String,String> update(Product crHouse, String url);
+    ArrayList<String> seCategory();
 }

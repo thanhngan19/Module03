@@ -25,7 +25,9 @@ public class ProductService implements IProductService{
         return productRepository.seCategory(url);
     }
 
-
+   public  ArrayList<String> seCategory(){
+       return productRepository.seCategory();
+   }
 
 
 

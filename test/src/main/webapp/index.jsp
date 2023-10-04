@@ -59,23 +59,24 @@
                     <th>Category</th>
                     <th>Edit</th>
                     <th>Delete</th>
+                    <th>View Detail</th>
                 </tr>
                 </thead>
-               <c:forEach items="${findAll}" var="household" varStatus="loop">
+               <c:forEach items="${findAll}" var="pro" varStatus="loop">
                     <tbody>
                     <tr>
                         <td><c:out value="${loop.count}"/></td>
-                        <td><c:out value="${household.getName_pro()}"/></td>
-                        <td><c:out value="${household.getPrice()}"/></td>
-                        <td><c:out value="${household.getQuantity()}"/></td>
-                        <td><c:out value="${household.getColor() }" /></td>
-                        <td><c:out value="${household.getCategory()}"/></td>
-                        <td><a href="/product?action=showFormEdit&id=${household.getId()}" role="button"
+                        <td><c:out value="${pro.getName_pro()}"/></td>
+                        <td><c:out value="${pro.getPrice()}"/></td>
+                        <td><c:out value="${pro.getQuantity()}"/></td>
+                        <td><c:out value="${pro.getColor() }" /></td>
+                        <td><c:out value="${pro.getCategory()}"/></td>
+                        <td><a href="/product?action=showFormEdit&id=${pro.getId()}" role="button"
                                class="btn btn-primary">Sửa</a></td>
                            <td>
                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                       onclick="getIdName('${household.getId()}','${household.getName_pro()}')">Delete</button></td>
-                           </td>
+                                       onclick="getIdName('${pro.getId()}','${pro.getName_pro()}')">Delete</button></td>
+                        <td><a href="/product?action=showDetail&id=${pro.getId()}" class="btn btn-primary">View Detail</a></td>
                     </tr>
                     </tbody>
                 </c:forEach>
@@ -131,10 +132,6 @@
 <script>
     const params = new URLSearchParams(window.location.search);
     let number=params.get('number');
-    <%--var text='Danh sách thành viên:\n\n' +--%>
-    <%--    '<c:forEach items="${member}" var="member">' +--%>
-    <%--    '<c:out value="${member.getName()}"/>\n' +--%>
-    <%--    '</c:forEach>';--%>
     if(number==1){
         Swal.fire(
             'Good job!',
